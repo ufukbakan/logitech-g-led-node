@@ -4,4 +4,4 @@ export enum DeviceType {
     Mousemat = 0x4,
     Headset = 0x8,
     Speaker = 0xe
-};
+}

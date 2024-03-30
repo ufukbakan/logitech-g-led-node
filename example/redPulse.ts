@@ -20,7 +20,7 @@ async function main() {
         await sleep(1 * 1000);
         sdk.LogiLedRestoreLighting();
     }
-    catch (e: any) {
+    catch (e) {
         console.error(e.message);
     }
 }
