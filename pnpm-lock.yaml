@@ -1,0 +1,32 @@
+lockfileVersion: '6.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+dependencies:
+  koffi:
+    specifier: ^2.8.0
+    version: 2.8.0
+
+devDependencies:
+  '@types/node':
+    specifier: ^20.11.30
+    version: 20.11.30
+
+packages:
+
+  /@types/node@20.11.30:
+    resolution: {integrity: sha512-dHM6ZxwlmuZaRmUPfv1p+KrdD1Dci04FbdEm/9wEMouFqxYoFl5aMkt0VMAUtYRQDyYvD41WJLukhq/ha3YuTw==}
+    dependencies:
+      undici-types: 5.26.5
+    dev: true
+
+  /koffi@2.8.0:
+    resolution: {integrity: sha512-EXhiH9Ya4f+o4+24+uV4vFAMyPEskARVUaY8VHbIYWqkQVPTDyYJCBNfxp0Kxw6WdhaMwXeR8xIUyz8R2H8Rew==}
+    requiresBuild: true
+    dev: false
+
+  /undici-types@5.26.5:
+    resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==}
+    dev: true

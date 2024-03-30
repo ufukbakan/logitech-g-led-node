@@ -1,0 +1,15 @@
+{
+  "name": "logitech-g-sdk-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/sdk.ts",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.11.30"
+  },
+  "dependencies": {
+    "koffi": "^2.8.0"
+  }
+}
