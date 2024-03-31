@@ -2,8 +2,10 @@
 Node.js implementation of [Logitech's Led Illumination SDK](https://www.logitechg.com/en-us/innovation/developer-lab.html)
 
 ## Changelog
+- v1.1.0
+  - Windows x32 support
 - v1.0.0:alpha:
-    - Windows x64 support
+  - Windows x64 support
 
 ## Prerequirements
 ![Enabling application illumination control](example/images/prereq1.png)
