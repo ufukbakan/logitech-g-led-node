@@ -5,6 +5,8 @@
   "type": "commonjs",
   "main": "dist/index.js",
   "scripts": {
+    "lint": "eslint ./src",
+    "lint:fix": "eslint ./src --fix",
     "build": "tsc --build",
     "postinstall": "npm run build"
   },
