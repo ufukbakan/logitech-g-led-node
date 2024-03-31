@@ -6,8 +6,8 @@ Node.js implementation of [Logitech's Led Illumination SDK](https://www.logitech
     - Windows x64 support
 
 ## Prerequirements
-![Enabling application illumination control](example/prereq1.png)
-![Disabling on-board memory mode](example/prereq2.png)
+![Enabling application illumination control](example/images/prereq1.png)
+![Disabling on-board memory mode](example/images/prereq2.png)
 
 ## Usage
 ```ts
