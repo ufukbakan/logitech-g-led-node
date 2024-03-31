@@ -2,6 +2,8 @@
 Node.js implementation of Logitech's Led Illumination SDK
 
 ## Changelog
+- v1.0.1:
+  - Build with declarations
 - v1.0.0:
     - Windows x64 support
 
