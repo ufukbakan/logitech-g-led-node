@@ -6,21 +6,21 @@ type SupportedArchitecture = "x32" | "x64";
 
 export function getLibDir() {
     switch (platform()) {
-        case "win32":
-            return `windows/lib/${architecture}/LogitechLedEnginesWrapper.dll`;
-        default:
-            throw new Error("Unsupported OS Platform");
+    case "win32":
+        return `windows/lib/${architecture}/LogitechLedEnginesWrapper.dll`;
+    default:
+        throw new Error("Unsupported OS Platform");
     }
 }
 
 export function getArchitecture() {
     switch (process.arch) {
-        case "ia32":
-            return "x32";
-        case "x64":
-            return "x64";
-        default:
-            throw new Error("Unsupported process architecture");
+    case "ia32":
+        return "x32";
+    case "x64":
+        return "x64";
+    default:
+        throw new Error("Unsupported process architecture");
     }
 }
 
@@ -28,10 +28,10 @@ export const architecture: SupportedArchitecture = getArchitecture();
 
 export function getLibFunctions(lib: IKoffiLib): Gsdk {
     switch (architecture) {
-        case "x64":
-            return getX64LibFunctions(lib);
-        default:
-            throw new Error(`Library functions not implemented for ${architecture} architecture`);
+    case "x64":
+        return getX64LibFunctions(lib);
+    default:
+        throw new Error(`Library functions not implemented for ${architecture} architecture`);
     }
 }
 
