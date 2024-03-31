@@ -2,8 +2,26 @@
   "name": "logitech-g-sdk-node",
   "version": "1.0.0",
   "description": "",
-  "main": "lib/sdk.ts",
-  "keywords": [],
+  "main": "dist/index.js",
+  "exports": {
+    ".": "./dist"
+  },
+  "scripts": {
+    "build": "tsc --build",
+    "postinstall": "npm run build"
+  },
+  "keywords": [
+    "logitech",
+    "logi",
+    "led",
+    "g led",
+    "lightsync",
+    "led sdk",
+    "rgb",
+    "g sdk",
+    "sdk",
+    "node"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
