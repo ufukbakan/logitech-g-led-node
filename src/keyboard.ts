@@ -113,5 +113,5 @@ export enum KeyName {
     G_8 = 0xfff8,
     G_9 = 0xfff9,
     G_LOGO = 0xffff1,
-    G_BADGE = 0xffff2
+    G_BADGE = 0xffff2,
 }
