@@ -1,4 +1,4 @@
-import sdk from "../src/sdk";
+import gLed from "../src";
 
 function sleep(x: number) {
     return new Promise(r => setTimeout(r, x));
@@ -8,17 +8,17 @@ function sleep(x: number) {
 // Also your device shouldn't be on onboard memory mode
 async function main() {
     try {
-        const initResult = sdk.LogiLedInit();
+        const initResult = gLed.init();
         await sleep(1 * 1000);
         if (!initResult) {
             throw new Error("could not initialize logi led sdk");
         }
 
-        sdk.LogiLedSaveCurrentLighting();
-        sdk.LogiLedPulseLighting(100, 0, 0, 200, 200);
+        gLed.saveCurrentLighting();
+        gLed.pulseLighting(100, 0, 0, 200, 200);
 
         await sleep(1 * 1000);
-        sdk.LogiLedRestoreLighting();
+        gLed.restoreLighting();
     }
     catch (e) {
         console.error(e.message);

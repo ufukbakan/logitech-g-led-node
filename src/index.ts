@@ -19,90 +19,90 @@ export class GsdkConstants {
     static readonly LOGI_LED_DURATION_INFINITE = 0;
 }
 interface Gsdk {
-    LogiLedInit(): boolean;
-    LogiLedInitWithName(name: string): boolean;
-    LogiLedGetConfigOptionNumber(configPath: string, defaultNumber: number): boolean;
-    LogiLedGetConfigOptionBool(configPath: string, defaultRed: boolean): boolean;
-    LogiLedGetConfigOptionColor(configPath: string, defaultRed: number, defaultGreen: number, defaultBlue: number): boolean;
-    LogiLedGetConfigOptionKeyInput(configPath: string, buffer: string, bufsize: number): boolean;
-    LogiLedSetTargetDevice(targetDevice: number): boolean;
-    LogiLedGetSdkVersion(majorNum: number, minorNum: number, buildNum: number): boolean;
-    LogiLedSaveCurrentLighting(): boolean;
-    LogiLedSetLighting(redPercentage: number, greenPercentage: number, bluePercentage: number): boolean;
-    LogiLedRestoreLighting(): boolean;
-    LogiLedFlashLighting(redPercentage: number, greenPercentage: number, bluePercentage: number, milliSecondsDuration: number, milliSecondsInterval: number): boolean;
-    LogiLedPulseLighting(redPercentage: number, greenPercentage: number, bluePercentage: number, milliSecondsDuration: number, milliSecondsInterval: number): boolean;
-    LogiLedStopEffects(): boolean;
-    LogiLedExcludeKeysFromBitmap(keyList: KeyName[], listCount: number): boolean;
-    LogiLedSetLightingFromBitmap(bitmap: number[]): boolean;
-    LogiLedSetLightingForKeyWithScanCode(keyCode: number, redPercentage: number, greenPercentage: number, bluePercentage: number): boolean;
-    LogiLedSetLightingForKeyWithHidCode(keyCode: number, redPercentage: number, greenPercentage: number, bluePercentage: number): boolean;
-    LogiLedSetLightingForKeyWithQuartzCode(keyCode: number, redPercentage: number, greenPercentage: number, bluePercentage: number): boolean;
-    LogiLedSetLightingForKeyWithKeyName(keyCode: KeyName, redPercentage: number, greenPercentage: number, bluePercentage: number): boolean;
-    LogiLedSaveLightingForKey(keyName: KeyName): boolean;
-    LogiLedRestoreLightingForKey(keyName: KeyName): boolean;
-    LogiLedFlashSingleKey(keyName: KeyName, redPercentage: number, greenPercentage: number, bluePercentage: number, msDuration: number, msInterval: number): boolean;
-    LogiLedPulseSingleKey(keyName: KeyName, startRedPercentage: number, startGreenPercentage: number, startBluePercentage: number, finishRedPercentage: number, finishGreenPercentage: number, finishBluePercentage: number, msDuration: number, isInfinite: boolean): boolean;
-    LogiLedStopEffectsOnKey(keyName: KeyName): boolean;
-    LogiLedSetLightingForTargetZone(deviceType: DeviceType, zone: number, redPercentage: number, greenPercentage: number, bluePercentage: number): boolean;
-    LogiLedShutdown(): void;
+    init(): boolean;
+    initWithName(name: string): boolean;
+    getConfigOptionNumber(configPath: string, defaultNumber: number): boolean;
+    getConfigOptionBool(configPath: string, defaultRed: boolean): boolean;
+    getConfigOptionColor(configPath: string, defaultRed: number, defaultGreen: number, defaultBlue: number): boolean;
+    getConfigOptionKeyInput(configPath: string, buffer: string, bufsize: number): boolean;
+    setTargetDevice(targetDevice: number): boolean;
+    getSdkVersion(majorNum: number, minorNum: number, buildNum: number): boolean;
+    saveCurrentLighting(): boolean;
+    setLighting(redPercentage: number, greenPercentage: number, bluePercentage: number): boolean;
+    restoreLighting(): boolean;
+    flashLighting(redPercentage: number, greenPercentage: number, bluePercentage: number, milliSecondsDuration: number, milliSecondsInterval: number): boolean;
+    pulseLighting(redPercentage: number, greenPercentage: number, bluePercentage: number, milliSecondsDuration: number, milliSecondsInterval: number): boolean;
+    stopEffects(): boolean;
+    excludeKeysFromBitmap(keyList: KeyName[], listCount: number): boolean;
+    setLightingFromBitmap(bitmap: number[]): boolean;
+    setLightingForKeyWithScanCode(keyCode: number, redPercentage: number, greenPercentage: number, bluePercentage: number): boolean;
+    setLightingForKeyWithHidCode(keyCode: number, redPercentage: number, greenPercentage: number, bluePercentage: number): boolean;
+    setLightingForKeyWithQuartzCode(keyCode: number, redPercentage: number, greenPercentage: number, bluePercentage: number): boolean;
+    setLightingForKeyWithKeyName(keyCode: KeyName, redPercentage: number, greenPercentage: number, bluePercentage: number): boolean;
+    saveLightingForKey(keyName: KeyName): boolean;
+    restoreLightingForKey(keyName: KeyName): boolean;
+    flashSingleKey(keyName: KeyName, redPercentage: number, greenPercentage: number, bluePercentage: number, msDuration: number, msInterval: number): boolean;
+    pulseSingleKey(keyName: KeyName, startRedPercentage: number, startGreenPercentage: number, startBluePercentage: number, finishRedPercentage: number, finishGreenPercentage: number, finishBluePercentage: number, msDuration: number, isInfinite: boolean): boolean;
+    stopEffectsOnKey(keyName: KeyName): boolean;
+    setLightingForTargetZone(deviceType: DeviceType, zone: number, redPercentage: number, greenPercentage: number, bluePercentage: number): boolean;
+    shutdown(): void;
 }
 
 const lib = koffi.load(path.resolve(__dirname, "lib/x64/LogitechLedEnginesWrapper.dll"));
-const LogiLedInit = lib.func("__stdcall", "LogiLedInit", "bool", []);
-const LogiLedInitWithName = lib.func("__stdcall", "LogiLedInitWithName", "bool", ["str"]);
-const LogiLedGetConfigOptionNumber = lib.func("__stdcall", "LogiLedGetConfigOptionNumber", "bool", ["str", "double*"]);
-const LogiLedGetConfigOptionBool = lib.func("__stdcall", "LogiLedGetConfigOptionBool", "bool", ["str", "bool*"]);
-const LogiLedGetConfigOptionColor = lib.func("__stdcall", "LogiLedGetConfigOptionColor", "bool", ["str", "int*", "int*", "int*"]);
-const LogiLedGetConfigOptionKeyInput = lib.func("__stdcall", "LogiLedGetConfigOptionKeyInput", "bool", ["str", "str*", "int"]);
-const LogiLedSetTargetDevice = lib.func("__stdcall", "LogiLedSetTargetDevice", "bool", ["int"]);
-const LogiLedGetSdkVersion = lib.func("__stdcall", "LogiLedGetSdkVersion", "bool", ["int*", "int*", "int*"]);
-const LogiLedSaveCurrentLighting = lib.func("__stdcall", "LogiLedSaveCurrentLighting", "bool", []);
-const LogiLedSetLighting = lib.func("__stdcall", "LogiLedSetLighting", "bool", ["int", "int", "int"]);
-const LogiLedRestoreLighting = lib.func("__stdcall", "LogiLedRestoreLighting", "bool", []);
-const LogiLedFlashLighting = lib.func("__stdcall", "LogiLedFlashLighting", "bool", ["int", "int", "int", "int", "int"]);
-const LogiLedPulseLighting = lib.func("__stdcall", "LogiLedPulseLighting", "bool", ["int", "int", "int", "int", "int"]);
-const LogiLedStopEffects = lib.func("__stdcall", "LogiLedStopEffects", "bool", []);
-const LogiLedExcludeKeysFromBitmap = lib.func("__stdcall", "LogiLedExcludeKeysFromBitmap", "bool", ["int*", "int"]);
-const LogiLedSetLightingFromBitmap = lib.func("__stdcall", "LogiLedSetLightingFromBitmap", "bool", ["int*"]);
-const LogiLedSetLightingForKeyWithScanCode = lib.func("__stdcall", "LogiLedSetLightingForKeyWithScanCode", "bool", ["int", "int", "int", "int"]);
-const LogiLedSetLightingForKeyWithHidCode = lib.func("__stdcall", "LogiLedSetLightingForKeyWithHidCode", "bool", ["int", "int", "int", "int"]);
-const LogiLedSetLightingForKeyWithQuartzCode = lib.func("__stdcall", "LogiLedSetLightingForKeyWithQuartzCode", "bool", ["int", "int", "int", "int"]);
-const LogiLedSetLightingForKeyWithKeyName = lib.func("__stdcall", "LogiLedSetLightingForKeyWithKeyName", "bool", ["int", "int", "int", "int"]);
-const LogiLedSaveLightingForKey = lib.func("__stdcall", "LogiLedSaveLightingForKey", "bool", ["int"]);
-const LogiLedRestoreLightingForKey = lib.func("__stdcall", "LogiLedRestoreLightingForKey", "bool", ["int"]);
-const LogiLedFlashSingleKey = lib.func("__stdcall", "LogiLedFlashSingleKey", "bool", ["int", "int", "int", "int", "int", "int"]);
-const LogiLedPulseSingleKey = lib.func("__stdcall", "LogiLedPulseSingleKey", "bool", ["int", "int", "int", "int", "int", "int", "int", "int", "bool"]);
-const LogiLedStopEffectsOnKey = lib.func("__stdcall", "LogiLedStopEffectsOnKey", "bool", ["int"]);
-const LogiLedSetLightingForTargetZone = lib.func("__stdcall", "LogiLedSetLightingForTargetZone", "bool", ["int", "int", "int", "int", "int"]);
-const LogiLedShutdown = lib.func("__stdcall", "LogiLedShutdown", "void", []);
+const init = lib.func("__stdcall", "LogiLedInit", "bool", []);
+const initWithName = lib.func("__stdcall", "LogiLedInitWithName", "bool", ["str"]);
+const getConfigOptionNumber = lib.func("__stdcall", "LogiLedGetConfigOptionNumber", "bool", ["str", "double*"]);
+const getConfigOptionBool = lib.func("__stdcall", "LogiLedGetConfigOptionBool", "bool", ["str", "bool*"]);
+const getConfigOptionColor = lib.func("__stdcall", "LogiLedGetConfigOptionColor", "bool", ["str", "int*", "int*", "int*"]);
+const getConfigOptionKeyInput = lib.func("__stdcall", "LogiLedGetConfigOptionKeyInput", "bool", ["str", "str*", "int"]);
+const setTargetDevice = lib.func("__stdcall", "LogiLedSetTargetDevice", "bool", ["int"]);
+const getSdkVersion = lib.func("__stdcall", "LogiLedGetSdkVersion", "bool", ["int*", "int*", "int*"]);
+const saveCurrentLighting = lib.func("__stdcall", "LogiLedSaveCurrentLighting", "bool", []);
+const setLighting = lib.func("__stdcall", "LogiLedSetLighting", "bool", ["int", "int", "int"]);
+const restoreLighting = lib.func("__stdcall", "LogiLedRestoreLighting", "bool", []);
+const flashLighting = lib.func("__stdcall", "LogiLedFlashLighting", "bool", ["int", "int", "int", "int", "int"]);
+const pulseLighting = lib.func("__stdcall", "LogiLedPulseLighting", "bool", ["int", "int", "int", "int", "int"]);
+const stopEffects = lib.func("__stdcall", "LogiLedStopEffects", "bool", []);
+const excludeKeysFromBitmap = lib.func("__stdcall", "LogiLedExcludeKeysFromBitmap", "bool", ["int*", "int"]);
+const setLightingFromBitmap = lib.func("__stdcall", "LogiLedSetLightingFromBitmap", "bool", ["int*"]);
+const setLightingForKeyWithScanCode = lib.func("__stdcall", "LogiLedSetLightingForKeyWithScanCode", "bool", ["int", "int", "int", "int"]);
+const setLightingForKeyWithHidCode = lib.func("__stdcall", "LogiLedSetLightingForKeyWithHidCode", "bool", ["int", "int", "int", "int"]);
+const setLightingForKeyWithQuartzCode = lib.func("__stdcall", "LogiLedSetLightingForKeyWithQuartzCode", "bool", ["int", "int", "int", "int"]);
+const setLightingForKeyWithKeyName = lib.func("__stdcall", "LogiLedSetLightingForKeyWithKeyName", "bool", ["int", "int", "int", "int"]);
+const saveLightingForKey = lib.func("__stdcall", "LogiLedSaveLightingForKey", "bool", ["int"]);
+const restoreLightingForKey = lib.func("__stdcall", "LogiLedRestoreLightingForKey", "bool", ["int"]);
+const flashSingleKey = lib.func("__stdcall", "LogiLedFlashSingleKey", "bool", ["int", "int", "int", "int", "int", "int"]);
+const pulseSingleKey = lib.func("__stdcall", "LogiLedPulseSingleKey", "bool", ["int", "int", "int", "int", "int", "int", "int", "int", "bool"]);
+const stopEffectsOnKey = lib.func("__stdcall", "LogiLedStopEffectsOnKey", "bool", ["int"]);
+const setLightingForTargetZone = lib.func("__stdcall", "LogiLedSetLightingForTargetZone", "bool", ["int", "int", "int", "int", "int"]);
+const shutdown = lib.func("__stdcall", "LogiLedShutdown", "void", []);
 
 export default {
-    LogiLedInit,
-    LogiLedInitWithName,
-    LogiLedGetConfigOptionNumber,
-    LogiLedGetConfigOptionBool,
-    LogiLedGetConfigOptionColor,
-    LogiLedGetConfigOptionKeyInput,
-    LogiLedSetTargetDevice,
-    LogiLedGetSdkVersion,
-    LogiLedSaveCurrentLighting,
-    LogiLedSetLighting,
-    LogiLedRestoreLighting,
-    LogiLedFlashLighting,
-    LogiLedPulseLighting,
-    LogiLedStopEffects,
-    LogiLedExcludeKeysFromBitmap,
-    LogiLedSetLightingFromBitmap,
-    LogiLedSetLightingForKeyWithScanCode,
-    LogiLedSetLightingForKeyWithHidCode,
-    LogiLedSetLightingForKeyWithQuartzCode,
-    LogiLedSetLightingForKeyWithKeyName,
-    LogiLedSaveLightingForKey,
-    LogiLedRestoreLightingForKey,
-    LogiLedFlashSingleKey,
-    LogiLedPulseSingleKey,
-    LogiLedStopEffectsOnKey,
-    LogiLedSetLightingForTargetZone,
-    LogiLedShutdown,
+    init,
+    initWithName,
+    getConfigOptionNumber,
+    getConfigOptionBool,
+    getConfigOptionColor,
+    getConfigOptionKeyInput,
+    setTargetDevice,
+    getSdkVersion,
+    saveCurrentLighting,
+    setLighting,
+    restoreLighting,
+    flashLighting,
+    pulseLighting,
+    stopEffects,
+    excludeKeysFromBitmap,
+    setLightingFromBitmap,
+    setLightingForKeyWithScanCode,
+    setLightingForKeyWithHidCode,
+    setLightingForKeyWithQuartzCode,
+    setLightingForKeyWithKeyName,
+    saveLightingForKey,
+    restoreLightingForKey,
+    flashSingleKey,
+    pulseSingleKey,
+    stopEffectsOnKey,
+    setLightingForTargetZone,
+    shutdown,
 } as Gsdk;
