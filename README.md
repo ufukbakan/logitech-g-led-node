@@ -1,5 +1,5 @@
 # logitech-g-led-node
-Node.js implementation of Logitech's Led Illumination SDK
+Node.js implementation of [Logitech's Led Illumination SDK](https://www.logitechg.com/en-us/innovation/developer-lab.html)
 
 ## Changelog
 - v2.0.0:
