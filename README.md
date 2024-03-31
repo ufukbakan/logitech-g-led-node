@@ -2,12 +2,12 @@
 Node.js implementation of [Logitech's Led Illumination SDK](https://www.logitechg.com/en-us/innovation/developer-lab.html)
 
 ## Changelog
-- v2.0.0:
-  - Interface method naming improvements
-- v1.0.1:
-  - Build with declarations
-- v1.0.0:
+- v1.0.0:alpha:
     - Windows x64 support
+
+## Prerequirements
+![Enabling application illumination control](example/prereq1.png)
+![Disabling on-board memory mode](example/prereq2.png)
 
 ## Usage
 ```ts

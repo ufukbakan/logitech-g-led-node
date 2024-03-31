@@ -1,6 +1,6 @@
 {
   "name": "logitech-g-led-node",
-  "version": "1.0.0:alpha",
+  "version": "1.0.0",
   "description": "",
   "type": "commonjs",
   "main": "dist/index.js",
