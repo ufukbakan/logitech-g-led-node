@@ -21,16 +21,16 @@ function sleep(x: number) {
 // Also your device shouldn't be on onboard memory mode
 async function main() {
     try {
-        const initResult = gLed.init();
-        await sleep(1 * 1000);
+        const initResult: boolean = gLed.init();
+        await sleep(1000); // Logitech SDK documentation recommends sleep after init
         if (!initResult) {
             throw new Error("could not initialize logi led sdk");
         }
 
         gLed.saveCurrentLighting();
-        gLed.pulseLighting(100, 0, 0, 200, 200);
+        gLed.pulseLighting(100, 0, 0, 500, 250); // r,g,b + Pulse for 500ms, each pulse finishes in 250 ms
 
-        await sleep(1 * 1000);
+        await sleep(1500);
         gLed.restoreLighting();
     }
     catch (e) {
