@@ -20,8 +20,12 @@
     "sdk",
     "node"
   ],
-  "author": "",
-  "license": "ISC",
+  "author": {
+    "name": "Ufuk Bakan",
+    "email": "println.ufukbakan@gmail.com",
+    "url": "https://www.linkedin.com/in/ufuk-bakan"
+  },
+  "license": "MIT",
   "devDependencies": {
     "@types/node": "^20.11.30"
   },
