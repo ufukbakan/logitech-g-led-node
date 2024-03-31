@@ -11,7 +11,7 @@ Node.js implementation of Logitech's Led Illumination SDK
 
 ## Usage
 ```ts
-import gLed from "../src";
+import gLed from "logitech-g-led-node";
 
 function sleep(x: number) {
     return new Promise(r => setTimeout(r, x));
