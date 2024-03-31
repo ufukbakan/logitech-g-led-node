@@ -21,7 +21,8 @@ async function main() {
         gLed.restoreLighting();
     }
     catch (e) {
-        console.error(e.message);
+        if (e instanceof Error)
+            console.error(e.message);
     }
 }
 
