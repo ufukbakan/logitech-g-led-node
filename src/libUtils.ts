@@ -7,7 +7,7 @@ type SupportedArchitecture = "x32" | "x64";
 export function getLibDir() {
     switch (platform()) {
     case "win32":
-        return `windows/lib/${architecture}/LogitechLedEnginesWrapper.dll`;
+        return `lib/windows/${architecture}/LogitechLedEnginesWrapper.dll`;
     default:
         throw new Error("Unsupported OS Platform");
     }
