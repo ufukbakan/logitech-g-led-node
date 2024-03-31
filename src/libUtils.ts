@@ -1,41 +1,42 @@
 import { IKoffiLib } from "koffi";
-import { platform } from "os";
+import os from "os";
 import { Gsdk } from ".";
 
 type SupportedArchitecture = "x32" | "x64";
 
+export const platform = os.platform();
+export const architecture: SupportedArchitecture = getArchitecture();
+
 export function getLibDir() {
-    switch (platform()) {
-    case "win32":
-        return `lib/windows/${architecture}/LogitechLedEnginesWrapper.dll`;
-    default:
-        throw new Error("Unsupported OS Platform");
+    switch (platform) {
+        case "win32":
+            return `lib/windows/${architecture}/LogitechLedEnginesWrapper.dll`;
+        default:
+            throw new Error("Unsupported OS Platform");
     }
 }
 
 export function getArchitecture() {
     switch (process.arch) {
-    case "ia32":
-        return "x32";
-    case "x64":
-        return "x64";
-    default:
-        throw new Error("Unsupported process architecture");
+        case "ia32":
+            return "x32";
+        case "x64":
+            return "x64";
+        default:
+            throw new Error("Unsupported process architecture");
     }
 }
-
-export const architecture: SupportedArchitecture = getArchitecture();
 
 export function getLibFunctions(lib: IKoffiLib): Gsdk {
-    switch (architecture) {
-    case "x64":
-        return getX64LibFunctions(lib);
-    default:
-        throw new Error(`Library functions not implemented for ${architecture} architecture`);
+    switch (platform) {
+        case "win32":
+            return getWindowsLibFunctions(lib);
+        default:
+            throw new Error("Unsupported platform");
     }
 }
 
-function getX64LibFunctions(lib: IKoffiLib): Gsdk {
+function getWindowsLibFunctions(lib: IKoffiLib): Gsdk {
     return {
         init: lib.func("__stdcall", "LogiLedInit", "bool", []),
         initWithName: lib.func("__stdcall", "LogiLedInitWithName", "bool", ["str"]),
