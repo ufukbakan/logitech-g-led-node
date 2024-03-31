@@ -49,7 +49,8 @@ export interface Gsdk {
     shutdown(): void;
 }
 
-const lib = koffi.load(path.resolve(__dirname, "..", getLibDir()));
+const libPath = path.resolve(__dirname, "..", getLibDir());
+const lib = koffi.load(libPath);
 const libFunctions: Gsdk = getLibFunctions(lib);
 
 export default libFunctions;
