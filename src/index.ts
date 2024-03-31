@@ -48,7 +48,7 @@ interface Gsdk {
     shutdown(): void;
 }
 
-const lib = koffi.load(path.resolve(__dirname, "lib/x64/LogitechLedEnginesWrapper.dll"));
+const lib = koffi.load(path.resolve(__dirname, "..", "lib/x64/LogitechLedEnginesWrapper.dll"));
 const init = lib.func("__stdcall", "LogiLedInit", "bool", []);
 const initWithName = lib.func("__stdcall", "LogiLedInitWithName", "bool", ["str"]);
 const getConfigOptionNumber = lib.func("__stdcall", "LogiLedGetConfigOptionNumber", "bool", ["str", "double*"]);
