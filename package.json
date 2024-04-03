@@ -1,51 +1,54 @@
 {
-    "name": "logitech-g-led-node",
-    "version": "1.0.1",
-    "description": "Node.js implementation of Logitech's Led Illumination SDK",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/ufukbakan/logitech-g-led-node.git"
-    },
-    "type": "commonjs",
-    "main": "dist/index.js",
-    "scripts": {
-        "lint": "eslint ./src",
-        "lint:fix": "eslint ./src --fix",
-        "build": "tsc --build",
-        "postinstall": "npm run build"
-    },
-    "keywords": [
-        "logitech",
-        "logi",
-        "led",
-        "g led",
-        "lightsync",
-        "led sdk",
-        "rgb",
-        "g sdk",
-        "sdk",
-        "node"
-    ],
-    "author": {
-        "name": "Ufuk Bakan",
-        "email": "println.ufukbakan@gmail.com",
-        "url": "https://www.linkedin.com/in/ufuk-bakan"
-    },
-    "license": "MIT",
-    "devDependencies": {
-        "@types/node": "^20.11.30",
-        "@typescript-eslint/eslint-plugin": "^6.16.0",
-        "@typescript-eslint/parser": "^6.16.0",
-        "eslint": "^8.56.0",
-        "eslint-config-prettier": "9.1.0",
-        "eslint-plugin-prettier": "5.1.2",
-        "eslint-plugin-react": "7.33.2",
-        "eslint-plugin-react-hooks": "4.6.0",
-        "eslint-with-prettier": "2.1.2",
-        "prettier": "3.1.1"
-    },
-    "dependencies": {
-        "koffi": "^2.8.0",
-        "typescript": "^5.4.3"
-    }
+  "name": "logitech-g-led-node",
+  "version": "1.1.0",
+  "description": "Node.js implementation of Logitech's Led Illumination SDK",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ufukbakan/logitech-g-led-node.git"
+  },
+  "type": "commonjs",
+  "main": "dist/index.js",
+  "scripts": {
+    "lint": "eslint ./src",
+    "lint:fix": "eslint ./src --fix",
+    "build": "tsc --build",
+    "postinstall": "npm run build",
+    "lint:staged": "lint-staged",
+    "prepare": "husky"
+  },
+  "keywords": [
+    "logitech",
+    "logi",
+    "led",
+    "g led",
+    "lightsync",
+    "led sdk",
+    "rgb",
+    "g sdk",
+    "sdk",
+    "node"
+  ],
+  "author": {
+    "name": "Ufuk Bakan",
+    "email": "println.ufukbakan@gmail.com",
+    "url": "https://www.linkedin.com/in/ufuk-bakan"
+  },
+  "lint-staged": {
+    "*.{ts,js}": [
+      "eslint --fix",
+      "eslint"
+    ]
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.11.30",
+    "eslint": "8.57.0",
+    "eslint-configurer": "^1.0.0",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "koffi": "^2.8.0"
+  }
 }
