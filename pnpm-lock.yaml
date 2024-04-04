@@ -14,9 +14,6 @@ dependencies:
   rollup:
     specifier: ^4.14.0
     version: 4.14.0
-  rollup-plugin-by-output:
-    specifier: ^1.0.1
-    version: 1.0.1
   tslib:
     specifier: ^2.6.2
     version: 2.6.2
@@ -1687,10 +1684,6 @@ packages:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
     dev: true
 
-  /lodash@4.17.21:
-    resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
-    dev: false
-
   /log-update@6.0.0:
     resolution: {integrity: sha512-niTvB4gqvtof056rRIrTZvjNYE4rCUzO6X/X+kYjd7WFxXeJ0NwEFnRxX6ehkvv3jTwrXnNdtAak5XYZuIyPFw==}
     engines: {node: '>=18'}
@@ -2036,13 +2029,6 @@ packages:
     dependencies:
       glob: 7.2.3
     dev: true
-
-  /rollup-plugin-by-output@1.0.1:
-    resolution: {integrity: sha512-+U5D6/uad40ZDf++VKq+dTrpyMee2yfg1DMcUp5zqhkYUqw2qYcBG/joRFg5RTJFbD3gSYhAQvun/fyeVhpcAQ==}
-    engines: {node: '>=8.3.0'}
-    dependencies:
-      lodash: 4.17.21
-    dev: false
 
   /rollup@4.14.0:
     resolution: {integrity: sha512-Qe7w62TyawbDzB4yt32R0+AbIo6m1/sqO7UPzFS8Z/ksL5mrfhA0v4CavfdmFav3D+ub4QeAgsGEe84DoWe/nQ==}
