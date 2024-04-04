@@ -1,5 +1,6 @@
 //@ts-check
 import typescript from "@rollup/plugin-typescript";
+import { when, format } from "rollup-plugin-by-output";
 
 export default {
     input: "src/index.ts", // Replace with your entry point
@@ -13,6 +14,13 @@ export default {
             format: "cjs", // CommonJS format for CJS
             sourcemap: true, // Include sourcemaps for debugging
         },
+        {
+            file: "dist/types/index.d.ts",
+            format: "system",
+        },
     ],
-    plugins: [typescript()],
+    plugins: [
+        typescript({ declaration: false }),
+        when(format("system"), () => typescript({ declaration: true, emitDeclarationOnly: true }))
+    ],
 };
