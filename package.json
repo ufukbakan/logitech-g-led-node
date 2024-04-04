@@ -1,17 +1,18 @@
 {
     "name": "logitech-g-led-node",
-    "version": "1.1.1",
+    "version": "1.1.3",
     "description": "Node.js implementation of Logitech's Led Illumination SDK",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/ufukbakan/logitech-g-led-node.git"
     },
-    "type": "commonjs",
-    "main": "dist/index.js",
+    "main": "dist/cjs/index.cjs",
+    "module": "dist/esm/index.mjs",
+    "type": "module",
     "scripts": {
         "lint": "eslint ./src",
         "lint:fix": "eslint ./src --fix",
-        "build": "tsc --build",
+        "build": "rollup -c",
         "postinstall": "npm run build",
         "lint:staged": "lint-staged",
         "prepare": "husky"
@@ -41,11 +42,13 @@
     },
     "license": "MIT",
     "devDependencies": {
+        "@rollup/plugin-typescript": "^11.1.6",
         "@types/node": "^20.11.30",
         "eslint": "8.57.0",
         "eslint-configurer": "^1.0.0",
         "husky": "^9.0.11",
         "lint-staged": "^15.2.2",
+        "rollup": "^4.14.0",
         "typescript": "^5.3.3"
     },
     "dependencies": {
