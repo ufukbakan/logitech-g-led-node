@@ -1,5 +1,6 @@
 import koffi from "koffi";
 import path from "path";
+import { fileURLToPath } from "url";
 import { DeviceType } from "./device.js";
 import { KeyName } from "./keyboard.js";
 import { getJsEnv, getLibDir, getLibFunctions } from "./libUtils.js";
@@ -59,7 +60,7 @@ export interface Gsdk {
     shutdown(): void;
 }
 
-const currentFile = getJsEnv() === "cjs" ? __filename : import.meta.url;
+const currentFile = getJsEnv() === "cjs" ? __filename : fileURLToPath(import.meta.url);
 const currentDir = path.dirname(currentFile);
 const libPath = path.resolve(currentDir, "..", getLibDir());
 const lib = koffi.load(libPath);
