@@ -1,8 +1,13 @@
-import { IKoffiLib } from "koffi";
 import os from "os";
-import { Gsdk } from ".";
+import { IKoffiLib } from "koffi";
+import { Gsdk } from "./index.js";
 
 type SupportedArchitecture = "x32" | "x64";
+type JsEnv = "esm" | "cjs";
+
+export function getJsEnv(): JsEnv {
+    return typeof exports === "object" ? "cjs" : "esm";
+}
 
 export const platform = os.platform();
 export const architecture: SupportedArchitecture = getArchitecture();

@@ -1,8 +1,8 @@
 import koffi from "koffi";
 import path from "path";
-import { DeviceType } from "./device";
-import { KeyName } from "./keyboard";
-import { getLibDir, getLibFunctions } from "./libUtils";
+import { DeviceType } from "./device.js";
+import { KeyName } from "./keyboard.js";
+import { getJsEnv, getLibDir, getLibFunctions } from "./libUtils.js";
 
 export class GsdkConstants {
     //LED SDK constants
@@ -59,7 +59,9 @@ export interface Gsdk {
     shutdown(): void;
 }
 
-const libPath = path.resolve(__dirname, "..", getLibDir());
+const currentFile = getJsEnv() === "cjs" ? __filename : import.meta.url;
+const currentDir = path.dirname(currentFile);
+const libPath = path.resolve(currentDir, "..", getLibDir());
 const lib = koffi.load(libPath);
 const libFunctions: Gsdk = getLibFunctions(lib);
 
