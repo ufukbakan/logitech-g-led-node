@@ -1,29 +1,29 @@
 {
     "name": "logitech-g-led-node",
-    "version": "1.1.9",
+    "version": "1.1.10",
     "description": "Node.js implementation of Logitech's Led Illumination SDK",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/ufukbakan/logitech-g-led-node.git"
     },
-    "main": "dist/cjs/index.cjs",
-    "module": "dist/esm/index.mjs",
-    "type": "module",
+    "main": "dist/cjs/index.js",
+    "module": "dist/esm/index.js",
     "types": "dist/types/index.d.ts",
+    "type": "module",
     "scripts": {
         "lint": "eslint ./src",
         "lint:fix": "eslint ./src --fix",
-        "build": "rollup -c rollup.config.dist.mjs && rollup -c rollup.config.types.mjs",
-        "postinstall": "npm run build",
+        "build": "concurrently \"rollup -c rollup.config.esm.mjs\" \"rollup -c rollup.config.cjs.mjs\" \"rollup -c rollup.config.types.mjs\"",
+        "postinstall": "npm run build && rimraf src lib dist/index.js",
         "lint:staged": "lint-staged",
         "prepare": "husky"
     },
     "exports": {
         ".": {
-            "default": "./dist/esm/index.mjs",
-            "import": "./dist/esm/index.mjs",
-            "require": "./dist/cjs/index.cjs",
-            "node": "./dist/cjs/index.cjs"
+            "default": "./dist/esm/index.js",
+            "import": "./dist/esm/index.js",
+            "require": "./dist/cjs/index.js",
+            "node": "./dist/cjs/index.js"
         }
     },
     "keywords": [
@@ -60,8 +60,11 @@
     },
     "dependencies": {
         "@rollup/plugin-typescript": "^11.1.6",
+        "concurrently": "^8.2.2",
         "koffi": "^2.8.0",
+        "rimraf": "^5.0.5",
         "rollup": "^4.14.0",
+        "rollup-plugin-copy": "^3.5.0",
         "tslib": "^2.6.2"
     }
 }
