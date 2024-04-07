@@ -1,31 +1,27 @@
 {
     "name": "logitech-g-led-node",
-    "version": "1.1.12",
+    "version": "1.1.13",
     "description": "Node.js implementation of Logitech's Led Illumination SDK",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/ufukbakan/logitech-g-led-node.git"
     },
-    "main": "dist/cjs/index.js",
-    "module": "dist/esm/index.js",
-    "types": "dist/types/index.d.ts",
+    "main": "dist/index.cjs",
+    "module": "dist/index.js",
+    "exports": {
+        ".": {
+            "import": "./dist/index.js",
+            "require": "./dist/index.cjs"
+        }
+    },
     "type": "module",
     "scripts": {
         "lint": "eslint ./src",
         "lint:fix": "eslint ./src --fix",
-        "build": "concurrently \"rollup -c rollup.config.esm.mjs\" \"rollup -c rollup.config.cjs.mjs\" \"rollup -c rollup.config.types.mjs\"",
-        "postinstall": "npm run build && rimraf src lib dist/index.js",
+        "build": "tsup && ncp lib dist/lib",
+        "postinstall": "npm run build && rimraf example src lib",
         "lint:staged": "lint-staged",
         "prepare": "husky"
-    },
-    "exports": {
-        ".": {
-            "default": "./dist/cjs/index.js",
-            "import": "./dist/esm/index.js",
-            "require": "./dist/cjs/index.js",
-            "node": "./dist/cjs/index.js",
-            "types": "./dist/types/index.d.ts"
-        }
     },
     "keywords": [
         "logitech",
@@ -56,16 +52,13 @@
         "eslint": "8.57.0",
         "eslint-configurer": "^1.0.0",
         "husky": "^9.0.11",
-        "lint-staged": "^15.2.2",
-        "typescript": "^5.3.3"
+        "lint-staged": "^15.2.2"
     },
     "dependencies": {
-        "@rollup/plugin-typescript": "^11.1.6",
-        "concurrently": "^8.2.2",
         "koffi": "^2.8.0",
+        "ncp": "^2.0.0",
         "rimraf": "^5.0.5",
-        "rollup": "^4.14.0",
-        "rollup-plugin-copy": "^3.5.0",
-        "tslib": "^2.6.2"
+        "tsup": "^8.0.2",
+        "typescript": "^5.4.4"
     }
 }
