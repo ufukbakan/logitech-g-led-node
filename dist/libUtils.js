@@ -1,22 +1,22 @@
-import os from "os";
-import { IKoffiLib } from "koffi";
-import { Gsdk } from "./interfaces.js";
-
-type SupportedArchitecture = "x32" | "x64";
-
-export const platform = os.platform();
-export const architecture: SupportedArchitecture = getArchitecture();
-
-export function getLibDir() {
-    switch (platform) {
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.getLibFunctions = exports.getArchitecture = exports.getLibDir = exports.architecture = exports.platform = void 0;
+const os_1 = __importDefault(require("os"));
+exports.platform = os_1.default.platform();
+exports.architecture = getArchitecture();
+function getLibDir() {
+    switch (exports.platform) {
         case "win32":
-            return `lib/windows/${architecture}/LogitechLedEnginesWrapper.dll`;
+            return `lib/windows/${exports.architecture}/LogitechLedEnginesWrapper.dll`;
         default:
             throw new Error("Unsupported OS Platform");
     }
 }
-
-export function getArchitecture() {
+exports.getLibDir = getLibDir;
+function getArchitecture() {
     switch (process.arch) {
         case "ia32":
             return "x32";
@@ -26,17 +26,17 @@ export function getArchitecture() {
             throw new Error("Unsupported process architecture");
     }
 }
-
-export function getLibFunctions(lib: IKoffiLib): Gsdk {
-    switch (platform) {
+exports.getArchitecture = getArchitecture;
+function getLibFunctions(lib) {
+    switch (exports.platform) {
         case "win32":
             return getWindowsLibFunctions(lib);
         default:
             throw new Error("Unsupported platform");
     }
 }
-
-function getWindowsLibFunctions(lib: IKoffiLib): Gsdk {
+exports.getLibFunctions = getLibFunctions;
+function getWindowsLibFunctions(lib) {
     return {
         init: lib.func("__stdcall", "LogiLedInit", "bool", []),
         initWithName: lib.func("__stdcall", "LogiLedInitWithName", "bool", ["str"]),

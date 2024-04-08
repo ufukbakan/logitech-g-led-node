@@ -1,1 +1,11 @@
-import"./chunk-C642IHJO.js";var a=(x=>(x[x.Keyboard=0]="Keyboard",x[x.Mouse=3]="Mouse",x[x.Mousemat=4]="Mousemat",x[x.Headset=8]="Headset",x[x.Speaker=14]="Speaker",x))(a||{});export{a as DeviceType};
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.DeviceType = void 0;
+var DeviceType;
+(function (DeviceType) {
+    DeviceType[DeviceType["Keyboard"] = 0] = "Keyboard";
+    DeviceType[DeviceType["Mouse"] = 3] = "Mouse";
+    DeviceType[DeviceType["Mousemat"] = 4] = "Mousemat";
+    DeviceType[DeviceType["Headset"] = 8] = "Headset";
+    DeviceType[DeviceType["Speaker"] = 14] = "Speaker";
+})(DeviceType || (exports.DeviceType = DeviceType = {}));

@@ -1,27 +1,25 @@
 {
     "name": "logitech-g-led-node",
-    "version": "1.1.14",
+    "version": "1.1.17",
     "description": "Node.js implementation of Logitech's Led Illumination SDK",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/ufukbakan/logitech-g-led-node.git"
     },
-    "main": "dist/index.cjs",
-    "module": "dist/index.js",
+    "main": "./dist/index.js",
     "types": "./dist/index.d.ts",
-    "typings": "./dist/index.d.cts",
     "exports": {
         ".": {
-            "import": "./dist/index.js",
-            "require": "./dist/index.cjs",
+            "default": "./dist/index.js",
             "types": "./dist/index.d.ts"
         }
     },
-    "type": "module",
+    "type": "commonjs",
     "scripts": {
+        "test": "tsx ./example/redPulse.ts",
         "lint": "eslint ./src",
         "lint:fix": "eslint ./src --fix",
-        "build": "tsup && node postbuild.cjs && ncp lib dist/lib",
+        "build": "tsc",
         "prepublish": "npm run build",
         "lint:staged": "lint-staged",
         "prepare": "husky"
@@ -44,7 +42,7 @@
         "url": "https://www.linkedin.com/in/ufuk-bakan"
     },
     "lint-staged": {
-        "*.{ts,js}": [
+        "!(dist)/*.{ts,js}": [
             "eslint --fix",
             "eslint"
         ]
@@ -56,9 +54,6 @@
         "eslint-configurer": "^1.0.0",
         "husky": "^9.0.11",
         "lint-staged": "^15.2.2",
-        "ncp": "^2.0.0",
-        "replace": "^1.2.2",
-        "tsup": "^8.0.2",
         "typescript": "^5.4.4"
     },
     "dependencies": {

@@ -1,4 +1,4 @@
-declare enum KeyName {
+export declare enum KeyName {
     ESC = 1,
     F1 = 59,
     F2 = 60,
@@ -115,5 +115,3 @@ declare enum KeyName {
     G_LOGO = 1048561,
     G_BADGE = 1048562
 }
-
-export { KeyName };

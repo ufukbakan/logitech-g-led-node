@@ -1,8 +1,20 @@
-import { DeviceType } from './device.js';
-import { KeyName } from './keyboard.js';
-declare module "logitech-g-led-node" {
-
-interface Gsdk {
+import { DeviceType } from "./device.js";
+import { KeyName } from "./keyboard.js";
+export declare class GsdkConstants {
+    static readonly LOGI_DEVICETYPE_MONOCHROME_ORD = 0;
+    static readonly LOGI_DEVICETYPE_RGB_ORD = 1;
+    static readonly LOGI_DEVICETYPE_PERKEY_RGB_ORD = 2;
+    static readonly LOGI_DEVICETYPE_MONOCHROME: number;
+    static readonly LOGI_DEVICETYPE_RGB: number;
+    static readonly LOGI_DEVICETYPE_PERKEY_RGB: number;
+    static readonly LOGI_DEVICETYPE_ALL: number;
+    static readonly LOGI_LED_BITMAP_WIDTH = 21;
+    static readonly LOGI_LED_BITMAP_HEIGHT = 6;
+    static readonly LOGI_LED_BITMAP_BYTES_PER_KEY = 4;
+    static readonly LOGI_LED_BITMAP_SIZE: number;
+    static readonly LOGI_LED_DURATION_INFINITE = 0;
+}
+export interface Gsdk {
     init(): boolean;
     initWithName(name: string): boolean;
     getConfigOptionNumber(configPath: string, defaultNumber: number): boolean;
@@ -30,10 +42,4 @@ interface Gsdk {
     stopEffectsOnKey(keyName: KeyName): boolean;
     setLightingForTargetZone(deviceType: DeviceType, zone: number, redPercentage: number, greenPercentage: number, bluePercentage: number): boolean;
     shutdown(): void;
-}
-
-declare const libFunctions: Gsdk;
-
-export default libFunctions;
-
 }

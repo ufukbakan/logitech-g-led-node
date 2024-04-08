@@ -1,39 +1,30 @@
-import { DeviceType } from './device.js';
-import { KeyName } from './keyboard.js';
-declare module "logitech-g-led-node" {
-
-interface Gsdk {
-    init(): boolean;
-    initWithName(name: string): boolean;
-    getConfigOptionNumber(configPath: string, defaultNumber: number): boolean;
-    getConfigOptionBool(configPath: string, defaultRed: boolean): boolean;
-    getConfigOptionColor(configPath: string, defaultRed: number, defaultGreen: number, defaultBlue: number): boolean;
-    getConfigOptionKeyInput(configPath: string, buffer: string, bufsize: number): boolean;
-    setTargetDevice(targetDevice: number): boolean;
-    getSdkVersion(majorNum: number, minorNum: number, buildNum: number): boolean;
-    saveCurrentLighting(): boolean;
-    setLighting(redPercentage: number, greenPercentage: number, bluePercentage: number): boolean;
-    restoreLighting(): boolean;
-    flashLighting(redPercentage: number, greenPercentage: number, bluePercentage: number, milliSecondsDuration: number, milliSecondsInterval: number): boolean;
-    pulseLighting(redPercentage: number, greenPercentage: number, bluePercentage: number, milliSecondsDuration: number, milliSecondsInterval: number): boolean;
-    stopEffects(): boolean;
-    excludeKeysFromBitmap(keyList: KeyName[], listCount: number): boolean;
-    setLightingFromBitmap(bitmap: number[]): boolean;
-    setLightingForKeyWithScanCode(keyCode: number, redPercentage: number, greenPercentage: number, bluePercentage: number): boolean;
-    setLightingForKeyWithHidCode(keyCode: number, redPercentage: number, greenPercentage: number, bluePercentage: number): boolean;
-    setLightingForKeyWithQuartzCode(keyCode: number, redPercentage: number, greenPercentage: number, bluePercentage: number): boolean;
-    setLightingForKeyWithKeyName(keyCode: KeyName, redPercentage: number, greenPercentage: number, bluePercentage: number): boolean;
-    saveLightingForKey(keyName: KeyName): boolean;
-    restoreLightingForKey(keyName: KeyName): boolean;
-    flashSingleKey(keyName: KeyName, redPercentage: number, greenPercentage: number, bluePercentage: number, msDuration: number, msInterval: number): boolean;
-    pulseSingleKey(keyName: KeyName, startRedPercentage: number, startGreenPercentage: number, startBluePercentage: number, finishRedPercentage: number, finishGreenPercentage: number, finishBluePercentage: number, msDuration: number, isInfinite: boolean): boolean;
-    stopEffectsOnKey(keyName: KeyName): boolean;
-    setLightingForTargetZone(deviceType: DeviceType, zone: number, redPercentage: number, greenPercentage: number, bluePercentage: number): boolean;
-    shutdown(): void;
-}
-
+import { Gsdk } from "./interfaces.js";
 declare const libFunctions: Gsdk;
-
+export declare const init: () => boolean;
+export declare const initWithName: (name: string) => boolean;
+export declare const getConfigOptionNumber: (configPath: string, defaultNumber: number) => boolean;
+export declare const getConfigOptionBool: (configPath: string, defaultRed: boolean) => boolean;
+export declare const getConfigOptionColor: (configPath: string, defaultRed: number, defaultGreen: number, defaultBlue: number) => boolean;
+export declare const getConfigOptionKeyInput: (configPath: string, buffer: string, bufsize: number) => boolean;
+export declare const setTargetDevice: (targetDevice: number) => boolean;
+export declare const getSdkVersion: (majorNum: number, minorNum: number, buildNum: number) => boolean;
+export declare const saveCurrentLighting: () => boolean;
+export declare const setLighting: (redPercentage: number, greenPercentage: number, bluePercentage: number) => boolean;
+export declare const restoreLighting: () => boolean;
+export declare const flashLighting: (redPercentage: number, greenPercentage: number, bluePercentage: number, milliSecondsDuration: number, milliSecondsInterval: number) => boolean;
+export declare const pulseLighting: (redPercentage: number, greenPercentage: number, bluePercentage: number, milliSecondsDuration: number, milliSecondsInterval: number) => boolean;
+export declare const stopEffects: () => boolean;
+export declare const excludeKeysFromBitmap: (keyList: import("./keyboard.js").KeyName[], listCount: number) => boolean;
+export declare const setLightingFromBitmap: (bitmap: number[]) => boolean;
+export declare const setLightingForKeyWithScanCode: (keyCode: number, redPercentage: number, greenPercentage: number, bluePercentage: number) => boolean;
+export declare const setLightingForKeyWithHidCode: (keyCode: number, redPercentage: number, greenPercentage: number, bluePercentage: number) => boolean;
+export declare const setLightingForKeyWithQuartzCode: (keyCode: number, redPercentage: number, greenPercentage: number, bluePercentage: number) => boolean;
+export declare const setLightingForKeyWithKeyName: (keyCode: import("./keyboard.js").KeyName, redPercentage: number, greenPercentage: number, bluePercentage: number) => boolean;
+export declare const saveLightingForKey: (keyName: import("./keyboard.js").KeyName) => boolean;
+export declare const restoreLightingForKey: (keyName: import("./keyboard.js").KeyName) => boolean;
+export declare const flashSingleKey: (keyName: import("./keyboard.js").KeyName, redPercentage: number, greenPercentage: number, bluePercentage: number, msDuration: number, msInterval: number) => boolean;
+export declare const pulseSingleKey: (keyName: import("./keyboard.js").KeyName, startRedPercentage: number, startGreenPercentage: number, startBluePercentage: number, finishRedPercentage: number, finishGreenPercentage: number, finishBluePercentage: number, msDuration: number, isInfinite: boolean) => boolean;
+export declare const stopEffectsOnKey: (keyName: import("./keyboard.js").KeyName) => boolean;
+export declare const setLightingForTargetZone: (deviceType: import("./device.js").DeviceType, zone: number, redPercentage: number, greenPercentage: number, bluePercentage: number) => boolean;
+export declare const shutdown: () => void;
 export default libFunctions;
-
-}
