@@ -113,7 +113,7 @@ declare enum KeyName {
     G_8 = 65528,
     G_9 = 65529,
     G_LOGO = 1048561,
-    G_BADGE = 1048562,
+    G_BADGE = 1048562
 }
 
 export { KeyName };

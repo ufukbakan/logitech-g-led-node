@@ -1,13 +1,1 @@
-'use strict';
-
-// src/device.ts
-var DeviceType = /* @__PURE__ */ ((DeviceType2) => {
-  DeviceType2[DeviceType2["Keyboard"] = 0] = "Keyboard";
-  DeviceType2[DeviceType2["Mouse"] = 3] = "Mouse";
-  DeviceType2[DeviceType2["Mousemat"] = 4] = "Mousemat";
-  DeviceType2[DeviceType2["Headset"] = 8] = "Headset";
-  DeviceType2[DeviceType2["Speaker"] = 14] = "Speaker";
-  return DeviceType2;
-})(DeviceType || {});
-
-exports.DeviceType = DeviceType;
+"use strict";Object.defineProperty(exports, "__esModule", {value: true});require('./chunk-ERUSO6IP.cjs');var a=(x=>(x[x.Keyboard=0]="Keyboard",x[x.Mouse=3]="Mouse",x[x.Mousemat=4]="Mousemat",x[x.Headset=8]="Headset",x[x.Speaker=14]="Speaker",x))(a||{});exports.DeviceType = a;

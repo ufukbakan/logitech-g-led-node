@@ -1,6 +1,6 @@
 import os from "os";
 import { IKoffiLib } from "koffi";
-import { Gsdk } from "./index.js";
+import { Gsdk } from "./interfaces.js";
 
 type SupportedArchitecture = "x32" | "x64";
 type JsEnv = "esm" | "cjs";

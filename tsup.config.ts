@@ -6,33 +6,14 @@ export default defineConfig([
         entry: entryFiles,
         format: ["esm", "cjs"],
         outDir: "dist",
-        dts: true, // Generate declaration file (.d.ts)
+        dts: true,
         sourcemap: false,
         shims: true,
-        treeshake: true,
+        treeshake: false,
         clean: true,
+        minify: true,
+        minifyWhitespace: true,
+        splitting: true,
+        silent: true,
     },
 ]);
-
-// export default defineConfig([
-//     {
-//         entry: entryFiles,
-//         format: ["esm"],
-//         outDir: "dist/esm",
-//         dts: true, // Generate declaration file (.d.ts)
-//         sourcemap: false,
-//         shims: true,
-//         treeshake: true,
-//         clean: true,
-//     },
-//     {
-//         entry: entryFiles,
-//         format: ["cjs"],
-//         outDir: "dist/cjs",
-//         dts: true, // (.d.ts)
-//         sourcemap: false,
-//         shims: true,
-//         cjsInterop: true,
-//         treeshake: true,
-//     },
-// ]);

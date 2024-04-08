@@ -8,17 +8,20 @@
     },
     "main": "dist/index.cjs",
     "module": "dist/index.js",
+    "types": "./dist/index.d.ts",
+    "typings": "./dist/index.d.cts",
     "exports": {
         ".": {
             "import": "./dist/index.js",
-            "require": "./dist/index.cjs"
+            "require": "./dist/index.cjs",
+            "types": "./dist/index.d.ts"
         }
     },
     "type": "module",
     "scripts": {
         "lint": "eslint ./src",
         "lint:fix": "eslint ./src --fix",
-        "build": "tsup && ncp lib dist/lib",
+        "build": "tsup && node postbuild.cjs && ncp lib dist/lib",
         "prepublish": "npm run build",
         "lint:staged": "lint-staged",
         "prepare": "husky"
@@ -54,6 +57,7 @@
         "husky": "^9.0.11",
         "lint-staged": "^15.2.2",
         "ncp": "^2.0.0",
+        "replace": "^1.2.2",
         "tsup": "^8.0.2",
         "typescript": "^5.4.4"
     },
